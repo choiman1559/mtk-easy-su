@@ -38,4 +38,5 @@
     <string name="xda">Xda forum</string>
     <string name="donate">Donate</string>
     <string name="run_as_64_bits">Run as 64 Bits</string>
+    <string name="apply_after_boot">Apply after boot</string>
 </resources>

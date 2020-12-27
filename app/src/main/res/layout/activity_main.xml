@@ -78,13 +78,6 @@
                             android:lineSpacingExtra="4sp"
                             android:text="@string/juniojsv_about" />
                     </LinearLayout>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/mButtonDonate"
-                        style="@style/CustomButtonOutlined"
-                        android:layout_width="match_parent"
-                        android:text="@string/donate"
-                        app:icon="@drawable/ic_local_cafe_black_24dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -101,6 +94,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/run_as_64_bits" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/mApplyAfterBoot"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/apply_after_boot" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

@@ -6,28 +6,16 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
-import com.google.android.gms.ads.*
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var preferences: SharedPreferences
-    private var advertising: InterstitialAd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.elevation = 0.0f
         preferences = getSharedPreferences(BuildConfig.APPLICATION_ID, Context.MODE_PRIVATE)
-
-        MobileAds.initialize(this) {
-            advertising = InterstitialAd(this).apply {
-                adUnitId = getString(R.string.advertising_id)
-                adListener = object : AdListener() {
-                    override fun onAdLoaded() = show()
-                }
-            }
-        }
 
         if (!preferences.getBoolean("startup_warning", false))
             AlertDialog.Builder(this).run {
@@ -50,14 +38,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        mApplyAfterBoot.apply {
+            isChecked = preferences.getBoolean("apply_after_boot", false)
+            setOnCheckedChangeListener { _, isChecked ->
+                preferences.edit(true) {
+                    putBoolean("apply_after_boot", isChecked)
+                }
+            }
+        }
+
         mVersion.text =
             String.format("%s %s", getString(R.string.version), BuildConfig.VERSION_NAME)
-
-        mButtonDonate.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse(getString(R.string.donate_url))
-            })
-        }
 
         mButtonGithub.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
@@ -72,7 +63,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         mButtonTryRoot.setOnClickListener { button ->
-            advertising?.loadAd(AdRequest.Builder().build())
             button.isEnabled = false
             ExploitHandler(this) { result, log ->
                 mLog.text = log

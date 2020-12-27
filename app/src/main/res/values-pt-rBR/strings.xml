@@ -32,5 +32,6 @@
     <string name="run_as_64_bits">Executar como 64 Bits</string>
     <string name="xda">Xda fórum</string>
     <string name="fail">Falha, tente novamente</string>
+    <string name="apply_after_boot">Apply after boot</string>
     <string name="log">Registro</string>
 </resources>
