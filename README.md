@@ -1,6 +1,6 @@
 # Mtk Easy Su (adless)
 
-
+### Now Working
 ### This repo is adless version of [mtk-easy-su](https://github.com/JunioJsv/mtk-easy-su)
 ### This repo does not provide any pre-built files, so if you want to use the app, use [this](https://github.com/JunioJsv/mediatek-easy-root/releases) or build your own.
 
