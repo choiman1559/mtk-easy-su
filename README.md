@@ -1,7 +1,8 @@
 # Mtk Easy Su (adless)
 
-
+### Work in progress - Korean translation added, Run on Boot added
 ### This repo is adless version of [mtk-easy-su](https://github.com/JunioJsv/mtk-easy-su)
+### This repo does not provide any pre-built files, so if you want to use the app, use [this](https://github.com/JunioJsv/mediatek-easy-root/releases) or build your own.
 
 - This app set up bootless super user access, with [Magisk](https://github.com/topjohnwu/Magisk) and Mtk-su, on MediaTek Android devices. To facilitate those wishing to use the security breach Mtk-su by [Diplomatic](https://forum.xda-developers.com/member.php?u=8132642).
 - If you are a more advanced user. I recommend using the [mtk-su](https://forum.xda-developers.com/t/amazing-temp-root-for-mediatek-armv8-2020-08-24.3922213/) tool from the terminal, you will have more possibilities and control over the process.
