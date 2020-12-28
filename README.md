@@ -1,9 +1,16 @@
 # Mtk Easy Su (adless)
 
-### Work in progress - Korean translation added, Run on Boot added
+ 
 ### This repo is adless version of [mtk-easy-su](https://github.com/JunioJsv/mtk-easy-su)
-### This repo does not provide any pre-built files, so if you want to use the app, use [this](https://github.com/JunioJsv/mediatek-easy-root/releases) or build your own.
-
+### Differences from the original repo
+ - Added korean translation
+ - removed ads
+ - Added "run on boot" option
+ - Migrated kotlin-android-extension to android view binding
+ 
+ 
+ 
+ ### Informations
 - This app set up bootless super user access, with [Magisk](https://github.com/topjohnwu/Magisk) and Mtk-su, on MediaTek Android devices. To facilitate those wishing to use the security breach Mtk-su by [Diplomatic](https://forum.xda-developers.com/member.php?u=8132642).
 - If you are a more advanced user. I recommend using the [mtk-su](https://forum.xda-developers.com/t/amazing-temp-root-for-mediatek-armv8-2020-08-24.3922213/) tool from the terminal, you will have more possibilities and control over the process.
 - Download the latest version [here](https://github.com/JunioJsv/mediatek-easy-root/releases), at your own risk.
@@ -29,7 +36,7 @@ Exit value 0
 |-----------------|:-------:|:----------------:|:-------:|
 | Lg K10          |  M250DS |  MediaTek MT6750 | Success |
 | Lg K10 Power    |  M320TV |  MediaTek MT6750 | Success |
-| Lg K10 TV       | K430DSF |  MediaTek MT6753 | Success |
+| Lg K10 TV       | K430DSF |  MediaTek MT6753 | Success |##
 | Lg K8           |   K350  |  Mediatek MT6735 |   Fail  |
 | Lg K4           |  X230DS | MediaTek MT6737M | Success |
 | Motorola Moto C |  XT1756 | Mediatek MT6737M | Success |
