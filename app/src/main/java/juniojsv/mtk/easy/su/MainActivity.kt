@@ -3,19 +3,22 @@ package juniojsv.mtk.easy.su
 import android.content.*
 import android.net.Uri
 import android.os.Bundle
+import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
-import kotlinx.android.synthetic.main.activity_main.*
+import juniojsv.mtk.easy.su.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var preferences: SharedPreferences
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         supportActionBar?.elevation = 0.0f
         preferences = getSharedPreferences(BuildConfig.APPLICATION_ID, Context.MODE_PRIVATE)
+        binding = ActivityMainBinding.inflate(layoutInflater,window.decorView.rootView as ViewGroup )
 
         if (!preferences.getBoolean("startup_warning", false))
             AlertDialog.Builder(this).run {
@@ -29,7 +32,7 @@ class MainActivity : AppCompatActivity() {
                 create().apply { setCanceledOnTouchOutside(false) }
             }.show()
 
-        mRunAs64.apply {
+        binding.mRunAs64.apply {
             isChecked = preferences.getBoolean("run_as_64", false)
             setOnCheckedChangeListener { _, isChecked ->
                 preferences.edit(true) {
@@ -38,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        mApplyAfterBoot.apply {
+        binding.mApplyAfterBoot.apply {
             isChecked = preferences.getBoolean("apply_after_boot", false)
             setOnCheckedChangeListener { _, isChecked ->
                 preferences.edit(true) {
@@ -47,26 +50,26 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        mVersion.text =
+        binding.mVersion.text =
             String.format("%s %s", getString(R.string.version), BuildConfig.VERSION_NAME)
 
-        mButtonGithub.setOnClickListener {
+        binding.mButtonGithub.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse(getString(R.string.github_url))
             })
         }
 
-        mButtonXda.setOnClickListener {
+        binding.mButtonXda.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse(getString(R.string.xda_url))
             })
         }
 
-        mButtonTryRoot.setOnClickListener { button ->
+        binding.mButtonTryRoot.setOnClickListener { button ->
             button.isEnabled = false
             ExploitHandler(this) { result, log ->
-                mLog.text = log
-                mButtonCopy.isEnabled = true
+                binding.mLog.text = log
+                binding.mButtonCopy.isEnabled = true
                 button.isEnabled = true
                 if (result)
                     getString(R.string.success).toast(this, true)
@@ -76,9 +79,9 @@ class MainActivity : AppCompatActivity() {
             }.execute()
         }
 
-        mButtonCopy.setOnClickListener {
+        binding.mButtonCopy.setOnClickListener {
             (getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager)
-                .setPrimaryClip(ClipData.newPlainText(getString(R.string.log), mLog.text))
+                .setPrimaryClip(ClipData.newPlainText(getString(R.string.log), binding.mLog.text))
         }
     }
 
