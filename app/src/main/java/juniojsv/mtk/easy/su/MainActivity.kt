@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import juniojsv.mtk.easy.su.databinding.ActivityMainBinding
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var preferences: SharedPreferences
     private lateinit var binding: ActivityMainBinding
@@ -18,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.elevation = 0.0f
         preferences = getSharedPreferences(BuildConfig.APPLICATION_ID, Context.MODE_PRIVATE)
-        binding = ActivityMainBinding.inflate(layoutInflater,window.decorView.rootView as ViewGroup )
+        binding = ActivityMainBinding.inflate(layoutInflater,findViewById(android.R.id.content))
 
         if (!preferences.getBoolean("startup_warning", false))
             AlertDialog.Builder(this).run {
