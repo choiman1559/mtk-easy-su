@@ -1,16 +1,22 @@
 # Mtk Easy Su (adless)
 
-### Work in progress - Korean translation added, Run on Boot added
+ 
 ### This repo is adless version of [mtk-easy-su](https://github.com/JunioJsv/mtk-easy-su)
-### This repo does not provide any pre-built files, so if you want to use the app, use [this](https://github.com/JunioJsv/mediatek-easy-root/releases) or build your own.
-
+### Differences from the original repo
+ - Added korean translation
+ - removed ads
+ - Added "run on boot" option
+ - Migrated kotlin-android-extension to android view binding
+ 
+ 
+ 
+ ### Informations
 - This app set up bootless super user access, with [Magisk](https://github.com/topjohnwu/Magisk) and Mtk-su, on MediaTek Android devices. To facilitate those wishing to use the security breach Mtk-su by [Diplomatic](https://forum.xda-developers.com/member.php?u=8132642).
 - If you are a more advanced user. I recommend using the [mtk-su](https://forum.xda-developers.com/t/amazing-temp-root-for-mediatek-armv8-2020-08-24.3922213/) tool from the terminal, you will have more possibilities and control over the process.
 - Download the latest version [here](https://github.com/JunioJsv/mediatek-easy-root/releases), at your own risk.
 
 ### Notes :memo:
-- (:warning:__REQUIRED__) To manage root access for each application, you must download [Magisk manager](https://github.com/topjohnwu/Magisk/releases/tag/manager-v7.1.1) (__v7.1.1__).
-- (:warning:__REQUIRED__) Before installing the app make sure that **google play protect is disabled**, in recent weeks the play store has marked the app as harmful for no reason.
+- (:warning:__REQUIRED__) To manage root access for each application, you must download [Magisk manager](https://github.com/topjohnwu/Magisk/releases/latest)
 - (:warning:__READ THIS__) XDA - [Critical MediaTek rootkit affecting millions of Android devices has been out in the open for months](https://www.xda-developers.com/mediatek-su-rootkit-exploit/).
 - (:warning:__WARNING__) Any firmware update released after March, 2020 is bound to block the method used by mtk-easy-su. Think twice before updating your device if you would like to keep using mtk-easy-su or mtk-su.
 - To check if you have been granted super user access, check the exit value returned by the log, when it is 0 is because it worked and you have root access, the log below is of a mediatek device (LG K10 2017) that this app was successful.
@@ -29,7 +35,7 @@ Exit value 0
 |-----------------|:-------:|:----------------:|:-------:|
 | Lg K10          |  M250DS |  MediaTek MT6750 | Success |
 | Lg K10 Power    |  M320TV |  MediaTek MT6750 | Success |
-| Lg K10 TV       | K430DSF |  MediaTek MT6753 | Success |
+| Lg K10 TV       | K430DSF |  MediaTek MT6753 | Success |##
 | Lg K8           |   K350  |  Mediatek MT6735 |   Fail  |
 | Lg K4           |  X230DS | MediaTek MT6737M | Success |
 | Motorola Moto C |  XT1756 | Mediatek MT6737M | Success |
