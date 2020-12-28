@@ -16,8 +16,7 @@
 - Download the latest version [here](https://github.com/JunioJsv/mediatek-easy-root/releases), at your own risk.
 
 ### Notes :memo:
-- (:warning:__REQUIRED__) To manage root access for each application, you must download [Magisk manager](https://github.com/topjohnwu/Magisk/releases/tag/manager-v8.0.3)
-- (:warning:__REQUIRED__) Before installing the app make sure that **google play protect is disabled**, in recent weeks the play store has marked the app as harmful for no reason.
+- (:warning:__REQUIRED__) To manage root access for each application, you must download [Magisk manager](https://github.com/topjohnwu/Magisk/releases/latest)
 - (:warning:__READ THIS__) XDA - [Critical MediaTek rootkit affecting millions of Android devices has been out in the open for months](https://www.xda-developers.com/mediatek-su-rootkit-exploit/).
 - (:warning:__WARNING__) Any firmware update released after March, 2020 is bound to block the method used by mtk-easy-su. Think twice before updating your device if you would like to keep using mtk-easy-su or mtk-su.
 - To check if you have been granted super user access, check the exit value returned by the log, when it is 0 is because it worked and you have root access, the log below is of a mediatek device (LG K10 2017) that this app was successful.
