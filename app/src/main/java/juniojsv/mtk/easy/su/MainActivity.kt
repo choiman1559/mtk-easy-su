@@ -2,8 +2,8 @@ package juniojsv.mtk.easy.su
 
 import android.content.*
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
@@ -15,9 +15,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if(Build.VERSION.SDK_INT > 22 && Build.VERSION.SECURITY_PATCH.replace("-","").toInt() >= 20200301) {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle(getString(R.string.warning_word))
+            builder.setMessage(R.string.dialog_security_patch)
+            builder.setCancelable(false)
+            builder.setPositiveButton(getString(R.string.dialog_close)) { _, _ ->
+                finishAndRemoveTask()
+            }
+            builder.show()
+        }
+
         supportActionBar?.elevation = 0.0f
         preferences = getSharedPreferences(BuildConfig.APPLICATION_ID, Context.MODE_PRIVATE)
-        binding = ActivityMainBinding.inflate(layoutInflater,findViewById(android.R.id.content))
+        binding = ActivityMainBinding.inflate(layoutInflater, findViewById(android.R.id.content))
 
         if (!preferences.getBoolean("startup_warning", false))
             AlertDialog.Builder(this).run {

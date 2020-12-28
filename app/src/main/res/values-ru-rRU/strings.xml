@@ -34,4 +34,6 @@
     <string name="fail">Ошибка, попробуйте еще раз</string>
     <string name="apply_after_boot">Apply after boot</string>
     <string name="log">Запись</string>
+    <string name="dialog_close">Close</string>
+    <string name="dialog_security_patch" >The security patch date is after 2020–03–01. Please try again after firmware downgrade.</string>
 </resources>
